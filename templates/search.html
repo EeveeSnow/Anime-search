@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/cards.css" />
+<cards>
+    {% for item in links.keys() %}
+    <card>
+        <div style="background-image: url({{img[item][0]}});" class="card-img">
+        </div>
+        <div class="card-line"></div>
+        <div class="title">{{item}}</div>
+        <div class="card-links">
+            {% for  i in links[item] %}
+            <div class="card-link">
+                <a href="{{ i }}">
+                    {% if "animego" in  i %}
+                    <img title="ru" src="static\img\animego.png" alt="animego.com">
+                    {% elif "zoro.to" in  i %}
+                    <img title="en" src="static\img\zoroto.png" alt="zoro.to">
+                    {% endif %}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </card>
+    {% endfor %}
+</cards>
+
+{% endblock %}

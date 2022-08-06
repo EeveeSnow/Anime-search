@@ -1,0 +1,21 @@
+h1 {
+    color: brown;
+}
+.gray {
+    background: grey;
+}
+.green {
+    background: lightgreen;
+    color: green;
+}
+.white {
+    background: rgb(177, 177, 177);
+}
+.yelow {
+    color:goldenrod;
+    background: wheat;
+}
+.red {
+    background: rgb(253, 116, 116);
+    color: brown;
+}

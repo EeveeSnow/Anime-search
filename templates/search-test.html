@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} Anime Search</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/static/csst/themes/MediumOrchid.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            
+        </header>
+        <nav class="navbar">
+            <ul class="navbar-nav">
+                <li class="logo"> 
+                    <a class="nav-link"> <h class="link-text">Search</h>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
+                            <g class="fa-group">
+                                <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M267.328 52.672C268.818 54.1583 270 55.9239 270.807 57.8677C271.613 59.8116 272.029 61.8954 272.029 64C272.029 66.1046 271.613 68.1884 270.807 70.1323C270 72.0761 268.818 73.8417 267.328 75.328L86.624 256L267.328 436.672C270.332 439.676 272.02 443.751 272.02 448C272.02 452.249 270.332 456.324 267.328 459.328C264.324 462.332 260.249 464.02 256 464.02C251.751 464.02 247.676 462.332 244.672 459.328L52.672 267.328C51.182 265.842 49.9998 264.076 49.1932 262.132C48.3866 260.188 47.9714 258.105 47.9714 256C47.9714 253.895 48.3866 251.812 49.1932 249.868C49.9998 247.924 51.182 246.158 52.672 244.672L244.672 52.672C246.158 51.182 247.924 49.9998 249.868 49.1932C251.812 48.3866 253.895 47.9714 256 47.9714C258.105 47.9714 260.188 48.3866 262.132 49.1932C264.076 49.9998 265.842 51.182 267.328 52.672V52.672Z"
+                                    class="fa-secondary"></path>
+                                <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M395.328 52.672C396.818 54.1583 398 55.9239 398.807 57.8677C399.613 59.8116 400.029 61.8954 400.029 64C400.029 66.1046 399.613 68.1884 398.807 70.1323C398 72.0761 396.818 73.8417 395.328 75.328L214.624 256L395.328 436.672C396.816 438.16 397.996 439.926 398.801 441.869C399.606 443.813 400.02 445.896 400.02 448C400.02 450.104 399.606 452.187 398.801 454.131C397.996 456.074 396.816 457.84 395.328 459.328C393.84 460.816 392.074 461.996 390.131 462.801C388.187 463.606 386.104 464.02 384 464.02C381.896 464.02 379.813 463.606 377.869 462.801C375.926 461.996 374.16 460.816 372.672 459.328L180.672 267.328C179.182 265.842 178 264.076 177.193 262.132C176.387 260.188 175.971 258.105 175.971 256C175.971 253.895 176.387 251.812 177.193 249.868C178 247.924 179.182 246.158 180.672 244.672L372.672 52.672C374.158 51.182 375.924 49.9998 377.868 49.1932C379.812 48.3866 381.895 47.9714 384 47.9714C386.105 47.9714 388.188 48.3866 390.132 49.1932C392.076 49.9998 393.842 51.182 395.328 52.672V52.672Z"
+                                    class="fa-primary"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <div class="filters">
+                        <!-- place for filters form-->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="current-background" *ngIf="current">
+                        <div class="title">Current Background</div>
+                        <cba-card class="card" [anime]="current"></cba-card>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            
+        </div>
+
+    
+
+    <link rel="stylesheet" type="text/css" href="/static/css/cards.css" />
+    <cards>
+    <card>
+        <div style="background-image: url(https://cdn.myanimelist.net/images/anime/1758/115692.jpg?s=b88f0d001a638329a37fcebc6d358fd1);" class="card-img">
+        </div> 
+        <div class="title">
+            Love Live! Superstar!!
+        </div>
+        <div class="card-link">
+            <a href="https://animego.org/anime/zhivaya-lyubov-superzvezda-1805"><img src="static\img\animego.png" alt="animego"></a>
+        </div>
+    </card>
+    <card>
+        <div title="" style="background-image: url(https://cdn.myanimelist.net/images/anime/8/80791.jpg?s=1759bb8babc358a8647a817d31408d8d);" class="card-img">
+        </div>
+            <a href=" https://zoro.to/watch/love-live-school-idol-project-sunshine-1837?ref=search" class="card-link"><img src="static\img\zoroto.png" alt="zoroto"></a>
+        <div class="title">Love Live! School Idol Project: Sunshine!!</div>
+    </card>
+    </cards>
+</main>
+</body>
+
+</html>
