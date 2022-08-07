@@ -1,10 +1,7 @@
-import difflib
-import json
 from pprint import pprint
+import json
 from bs4 import BeautifulSoup as bs
 import requests
-import dictlib
-from pydash import merge_with
 
 class Search_Long():
     def zoroto(self, name: str):
@@ -92,30 +89,53 @@ class Search_Long():
                             out_img[item["title"]] = [img["source"]]
                             break
         return out, out_img
+
+    def wakanim(self, name):
+        params_wakanim = {
+            "search": name,
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJXZWJzaXRlSWQiOiIwIiwiTGFuZ3VhZ2VJZCI6IjAiLCJDb3VudHJ5IjoiRlIiLCJMYW5ndWFnZSI6ImZyIiwiaXNzIjoid2FrYW5pbS50diIsImF1ZCI6Indha2FuaW0udHYiLCJleHAiOjE2NjAwNTc1OTIsIm5iZiI6MTY1OTg4NDc4Mn0.Lnm3R6Q-97VCRCuH2448yMqDxTDyG4XWp6Jt3MHw4R8"
+        }
+
+        out = {}
+        out_img = {}
+
+        wakanim_data = requests.get("https://apiwaka.azure-api.net/search/v2/", params=params_wakanim).json()
+        for item in wakanim_data["value"]:
+            out[item["Name"]] = "https://www.wakanim.tv/fr/v2/catalogue/show/" + item["IdShowItem"]
+            out_img[item["Name"]] = json.dumps(item["Image"])
+        return out, out_img
+
     
     def all(self, name: str):
         zoro, zoro_img = self.zoroto(name)
         anigo, anigo_img = self.animego(name)
         carboard, carboard_img = self.CardboardBox(name)
+        wakanim, wakanim_img = self.wakanim(name)
         merged = {}
         merged_img = {}
         for item in carboard.keys():
             merged[item] = carboard[item]
             merged_img[item] = carboard_img[item]
-        for item in zoro.keys():
+        for item in wakanim.keys():
             try:
-                merged[item] = [zoro[item], *merged[item]]
+                merged[item] = [wakanim[item], *merged[item]]
             except KeyError:
-                merged[item] = [zoro[item]]
-                merged_img[item] = [zoro_img[item]]
+                merged[item] = [wakanim[item]]
+                merged_img[item] = [wakanim_img[item]]
         for item in anigo.keys():
             try:
                 merged[item] = [anigo[item], *merged[item]]
             except KeyError:
                 merged[item] = [anigo[item]]
                 merged_img[item] = [anigo_img[item]]
-        merged = dict(sorted(merged.items()))
-        merged_img = dict(sorted(merged_img.items()))
+        for item in zoro.keys():
+            try:
+                merged[item] = [zoro[item], *merged[item]]
+            except KeyError:
+                merged[item] = [zoro[item]]
+                merged_img[item] = [zoro_img[item]]
+        # merged = dict(sorted(merged.items()))
+        # merged_img = dict(sorted(merged_img.items()))
         return merged, merged_img
             
 # test = Search_Long()

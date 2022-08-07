@@ -1,21 +1,10 @@
-h1 {
-    color: brown;
-}
-.gray {
-    background: grey;
-}
-.green {
-    background: lightgreen;
-    color: green;
-}
-.white {
-    background: rgb(177, 177, 177);
-}
-.yelow {
-    color:goldenrod;
-    background: wheat;
-}
-.red {
-    background: rgb(253, 116, 116);
-    color: brown;
-}
+:root {
+    --main-color-primary: #CCCCCC;
+    --main-color-secondary: #a4a4a4;
+    --second_color: #FF3434;
+    --support_color: #737272;
+    --text-primary: #2b2b2b;
+    --text-secondary: #4E4E4E;
+    font-size: 16px;
+    --transition-speed: 600ms;
+  }
