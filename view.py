@@ -18,7 +18,7 @@ def index():
 def search(title):
     searcher = Search_Long()
     form = SearchForm()
-    data = searcher.anime_go_and_zoro_to(title)
+    data = searcher.all(title)
     if form.validate_on_submit():
         return redirect(f"/search:{form.search.data}")
     return render_template(
