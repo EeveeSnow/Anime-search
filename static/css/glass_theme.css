@@ -1,0 +1,36 @@
+:root { 
+    --main-color-primary: #2b2b2b; 
+    --main-color-secondary: #303030;
+    --main-color-secondary--glass: #3030309e;
+    --second_color: HoneyDew; 
+    --support_color: #212121; 
+    --text-primary: #b6b6b6; 
+    --text-secondary: #ececec; 
+    font-size: 16px;
+    --transition-speed: 600ms;
+    --animego_color: #ff5c57;
+    --crunchyroll_color: rgb(244, 117, 33);
+    --hidive_color: rgba(0, 174, 240, 1);
+    --hidive_color-dark: rgb(0, 95, 133);
+    --funimation_color: #6030a1;
+  }
+
+card, .card_big_title, .card_big_tags, .card_big_links, .card_big_desc{
+    background-color: var(--main-color-secondary--glass) !important;
+    border: solid var(--main-color-secondary) 2px;
+}
+
+header{
+    background-color: var(--main-color-secondary--glass) !important;
+    border-bottom: solid var(--main-color-secondary) 2px;
+    margin-top: -3px;
+}
+
+.navbar{
+    background-color: var(--main-color-secondary--glass) !important;
+}
+
+
+.card-img, .title, .title_img, .card-link, .card-line{
+    opacity: 1 !important;
+}

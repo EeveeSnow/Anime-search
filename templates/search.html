@@ -1,37 +1,85 @@
 {% extends "layout.html" %}
 
+{% block Background%}
+<style type="text/css">
+    body {
+        {% if theme_now == "glass" %}
+            background-image: url({{wallpaper[1][0]}});
+        {% elif theme_now == "dark" %}
+            background-image: linear-gradient(rgba(70, 70, 70, 0.8), rgba(0, 0, 0, 0.5)), url({{wallpaper[1][0]}});
+        {% endif %}
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: top;
+    }
+</style>
+
+<div class="title-wallpaper">
+    Current Background:
+
+    <p>"{{wallpaper[0]}}"</p>
+    <img class="title_img" src="{{wallpaper[1][0]}}">
+</div>
+{% endblock %}
+
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/static/css/cards.css" />
 <cards>
     {% for item in links.keys() %}
     <card>
-        <div style="background-image: url({{img[item][0]}});" class="card-img">
-        </div>
-        <div class="card-line"></div>
+        <div style="background-image: url({{img[item][0]}});" class="card-img" id=
+        {% if "animego" in  img[item][0] %}
+            "animego"
+        {% elif "crunchyroll" in  img[item][0] %}
+            "crunchyroll"
+        {% elif "funimation" in  img[item][0] %}
+            "funimation"
+        {% elif "hidive" in  img[item][0] %}
+            "hidive"
+        {% endif %}
+        ></div>
         <div class="title">{{item}}</div>
         <div class="card-links">
             {% for  i in links[item] %}
-            <div class="card-link">
+            <div class="card-link" id=
+            {% if "animego" in  i %}
+            "animego"
+            {% elif "crunchyroll" in  i %}
+            "crunchyroll"
+            {% elif "funimation" in  i %}
+            "funimation"
+            {% elif "hidive" in  i %}
+            "hidive"
+            {% endif %}
+            >
                 <a href="{{ i }}">
                     {% if "animego" in  i %}
-                    <img title="free ru" src="static\img\animego.png" width="32" height="32" alt="animego.com">
+                    <img title="free ru" src="static\img\animego-icon.png" alt="animego.com">
                     {% elif "zoro.to" in  i %}
-                    <img title="free en" src="static\img\zoroto.png" width="32" height="32" alt="zoro.to">
+                    <img title="free en" src="static\img\zoroto.png" alt="zoro.to">
                     {% elif "crunchyroll" in  i %}
-                    <img title="premium en" src="static\img\crunchyroll-icon.png" width="32" height="32" alt="crunchyroll.com">
+                    <img title="premium" src="static\img\crunchyroll-icon.png" alt="crunchyroll.com">
                     {% elif "funimation" in  i %}
-                    <img title="premium en" src="static\img\funimation-icon.png" width="32" height="32" alt="funimation.com">
+                    <img title="premium en" src="static\img\funimation-icon.png" alt="funimation.com">
                     {% elif "hidive" in  i %}
-                    <img title="premium en" src="static\img\hidive-icon.png" width="32" height="32" alt="hidive.com">
+                    <img title="premium en" src="static\img\hidive-icon.png" alt="hidive.com">
                     {% elif "wakanim" in  i %}
-                    <img title="premium fr" src="static\img\wakanim-icon.png" width="32" height="32" alt="hidive.com">
+                    <img title="premium fr" src="static\img\wakanim-icon.png" alt="hidive.com">
+                    {% else %}
+                    <img title="no inf" src="static\img\loading.gif" alt="no inf">
                     {% endif %}
                 </a>
             </div>
             {% endfor %}
+            <div class="card-line"></div>
         </div>
     </card>
     {% endfor %}
 </cards>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="static\scripts\card.js"></script>
 {% endblock %}

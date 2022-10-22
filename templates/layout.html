@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} Anime search</title>
     <link rel="stylesheet" type="text/css" href="/static/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="/static/csst/themes/MediumOrchid.css" />
+    <link rel="stylesheet" type="text/css" href="static\css\glass_theme.css" />
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
@@ -53,8 +53,7 @@
                 </li>
                 <li class="nav-item">
                     <div class="current-background" *ngIf="current">
-                        <div class="title">Current Background</div>
-                        <cba-card class="card" [anime]="current"></cba-card>
+                        {% block Background %}{% endblock %}
                     </div>
                 </li>
             </ul>

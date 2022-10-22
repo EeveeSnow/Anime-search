@@ -7,6 +7,11 @@
   --text-secondary: #ececec; 
   font-size: 16px;
   --transition-speed: 600ms;
+  --animego_color: #ff5c57;
+  --crunchyroll_color: rgb(244, 117, 33);
+  --hidive_color: rgba(0, 174, 240, 1);
+  --hidive_color-dark: rgb(0, 95, 133);
+  --funimation_color: #6030a1;
 }
 
 html {
@@ -28,7 +33,7 @@ main {
 
     margin-top: -8px;
 
-    grid-template-columns: 1fr 4fr 1fr !important;
+    grid-template-columns: 1fr 5fr 1fr !important;
 
     grid-template-rows: 2rem 100%;
 }
@@ -78,6 +83,7 @@ header {
     position: fixed;
     margin-left: 8px;
     background-color: var(--support_color);
+    z-index: 3;
 }
 
 header .btn-logout {
@@ -114,6 +120,8 @@ header svg {
     border-radius: 0px;
     border-right: 1px solid var(--support_color);
     -ms-overflow-style: none;
+    z-index: 1000;
+    overflow-x: hidden;
   }
   
   .navbar::-webkit-scrollbar {
@@ -230,7 +238,7 @@ header svg {
     }
   
     .navbar:hover {
-        width: 12rem;
+        width: 16rem;
     }
     .navbar:hover .nav-item {
       margin-left: 1rem;
@@ -242,7 +250,7 @@ header svg {
     }
   
     .navbar:hover .logo svg {
-        margin-left: 1rem;
+        margin-left: 5rem;
     }
   
   

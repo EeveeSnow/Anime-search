@@ -1,5 +1,4 @@
 cards {
-
     width: auto;
     
     height: 100%;
@@ -9,9 +8,14 @@ cards {
     overflow: scroll;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-columns: repeat(auto-fill, 250px);
+
     grid-template-rows: auto;
 
+    justify-content: center;
+
+    padding-top: .75rem;
 }
 
 cards::-webkit-scrollbar {
@@ -19,50 +23,269 @@ cards::-webkit-scrollbar {
 }
 
 card {
-    margin-top: 1rem;
-    width: 225px;
-    height: 366px;
+    margin-top: 2.5rem;
+    width: 200px;
+    height: 400px;
     display: block;
     background-color: var(--main-color-secondary);
     border-radius: 1rem;
+    overflow: hidden;
+    transition: ease;
+    transition-duration: var(--transition-speed);
 }
 
 .card-img {
-    width: 225px;
-    height: 318px;
-    border-radius: 1rem;
-    background-size: cover;
+    width: 200px;
+    height: 300px;
+    border-radius: 1rem 1rem 0 0;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
 }
 
 .title {
-    background-color: var(--main-color-secondary);
-    width: 1fr;
+    /* background-color: var(--main-color-secondary); */
+    width: 180px;
     /* margin-top: -2rem; */
     min-height: 3rem;
-    padding-left: .25rem;
-    padding-right: .25rem;
     /* text-indent: 2rem; */
-    padding-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-radius: .5rem;
+    color: var(--text-primary);
+    padding-left: .25rem;
+}
+
+.title_img{
+    width: 13rem;
 }
 
 .card-link {
-    background-color: var(--support_color);
+    background-color: var(--main-color-secondary);
     margin-left: .25rem;
-    margin-top: -5rem;
-    border-radius: .5rem;
+    margin-top: -4.9rem;
+    border-radius: 1rem;
     display: block;
-    max-width: 32px;
-    max-height: 32px;
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+    border: solid var(--main-color-secondary) 2px;
+}
+
+.card-link img{
+    width: 24px;
+    height: 24px;
+    margin: 3px;
 }
 
 .card-line {
     background-color: var(--second_color);
-    height: .5rem;
-    margin-top: -2rem;
+    position: absolute;
+    height: .25rem;
+    width: 200px;
+    margin-top: -3.95rem;
+    z-index: 1;
+    overflow: hidden;
+
 }
 
 .card-links {
     display: flex;
     flex-direction: row;
+}
+
+.title-wallpaper {
+    background-color: var(--main-color-secondary);
+    width: 14rem;
+    /* margin-top: -2rem; */
+    min-height: 3rem;
+    /* text-indent: 2rem; */
+    padding-top: 0.75rem;
+    border-radius: .5rem;
+    color: var(--text-primary);
+    padding-left: .75rem;
+    margin-left: -2px;
+}
+
+glass {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 0 0 calc(50% - 25rem) calc(50% - 25rem);
+    z-index: 6;
+    background-color: var(--main-color-secondary--glass);
+}
+
+card-big {
+    margin-top: 5%;
+    width: 50rem;
+    height: fit-content;
+    border: solid var(--main-color-secondary) 2px;
+    border-radius: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--main-color-primary);
+    z-index: 6;
+    /* justify-self: center; */
+    display: grid;
+    grid-template-areas: "img title" "img tags" "img description" "links description";
+    grid-template-columns: calc(460px/2 + 2rem) auto;
+    grid-auto-rows: 5.5rem auto auto 6rem;
+}
+.card_big_img{
+    grid-area: img;
+    height: calc(654px/2);
+    background-repeat: no-repeat;
+    background-size:cover;
+    border-radius: 1rem;
+    width: calc(460px/2);
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border: solid var(--main-color-secondary) 2px;
+}
+
+.card_big_title{
+    grid-area: title;
+    background-color: var(--main-color-secondary);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    width: 500px;
+    height: 4.5rem;
+    margin-left: 1rem;
+}
+
+.card_big_title--en{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.card_big_title--jp{
+    font-size: .75rem;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.card_big_tags{
+    grid-area: tags;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--main-color-secondary);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    width: calc(500px - .5rem);
+    height: fit-content;
+    margin-left: 1rem;
+    justify-content: center;
+    padding: .25rem;
+    gap: .25rem;
+}
+
+.card_big_tag{
+    margin-left: .5rem;
+    margin-top: .25rem;
+    background-color: var(--support_color);
+    border-radius: .75rem;
+    padding-left: .35rem;
+    padding-right: .35rem;
+    margin-bottom: .25rem;
+    height: fit-content;
+    color: var(--text-primary);
+}
+
+.card_big_desc{
+    grid-area: description;
+    background-color: var(--main-color-secondary);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    width: calc(500px - 1rem);
+    height: fit-content;
+    margin-left: 1rem;
+    color: var(--text-primary);
+    padding: .5rem;
+    margin-bottom: 1rem;
+}
+
+.card_big_links {
+    grid-area: links;
+    display: flex;
+    background-color: var(--main-color-secondary);
+    border-bottom: solid var(--main-color-secondary) 2px;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    width: calc(234px - .5rem - 4px);
+    height: fit-content;
+    margin-left: 1rem;
+    justify-content: center;
+    padding: .25rem;
+    gap: .25rem;
+}
+
+.card_big_link{
+    background-color: var(--main-color-secondary);
+    border-radius: 1rem;
+    width: 30px;
+    height: 30px;
+    border: solid var(--support_color) 2px;
+}
+
+
+.card_big_link img {
+    width: 24px;
+    height: 24px;
+    margin: 3px;
+}
+.card-img#hidive{
+    background-color: var(--hidive_color-dark);
+}
+
+.card-img#funimation{
+    background-color: var(--funimation_color);
+}
+
+.card-img#crunchyroll{
+    background-color: var(--crunchyroll_color);
+}
+
+.card-img#animego{
+    background-color: var(--animego_color);  
+}
+
+.card-link#animego:hover, .card-link#animego:hover ~ .card-line{
+    background-color: var(--animego_color);
+    
+}
+
+.card-link#hidive:hover,.card-link#hidive:hover ~ .card-line{
+    background-color: var(--hidive_color);
+}
+
+.card-link#crunchyroll:hover ~ .card-line, .card-link#crunchyroll:hover{
+    background-color: var(--crunchyroll_color);
+}
+
+.card-link#funimation:hover ~ .card-line, .card-link#funimation:hover{
+    background-color: var(--funimation_color);
+}
+
+/* .card-link:hover ~ .card-line{
+    height: calc(.5rem - 4px);
+    border-bottom: solid var(--support_color) 2px;
+    border-top: solid var(--support_color) 2px;
+} */
+
+.card-link:hover {
+    transition: var(200ms);
+    border: solid var(--support_color) 2px;
+}
+
+card:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: ease;
+    transition-duration: var(--transition-speed);
+    box-shadow: .5rem .5rem .5rem var(--main-color-primary);
 }
